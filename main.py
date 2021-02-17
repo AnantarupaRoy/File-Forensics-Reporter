@@ -23,7 +23,7 @@ elif('JPEG' in details):
 	print("jpg")
 	jpg.solve(path)
 	
-elif('wav' in details):
+elif('WAVE' in details):
 	import wav
 	print("wav")
 	wav.solve(path)
