@@ -31,4 +31,4 @@ def solve(path):
 			f.close()
 				
 	
-	# outguess
+	
