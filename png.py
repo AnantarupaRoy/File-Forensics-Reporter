@@ -1,5 +1,6 @@
 import re
 import subprocess
+import optional_modules
 
 def solve(path):
 
@@ -26,3 +27,7 @@ def solve(path):
 		f.write(output)
 		f.close()
 	
+	# extras
+	optional_modules.exiftool(path)
+	optional_modules.binwalk(path)
+	optional_modules.xxd(path)
