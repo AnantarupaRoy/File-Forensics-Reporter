@@ -1,5 +1,6 @@
 import re
 import subprocess
+import optional_modules
 
 def solve(path):
 	# strings
@@ -33,4 +34,8 @@ def solve(path):
 		f.close()
 	with open("Report.md","a+b") as f2:
 		f2.write(text)
+
+	optional_modules.exiftool(path)
+	optional_modules.binwalk(path)
+	optional_modules.xxd(path)
 	
