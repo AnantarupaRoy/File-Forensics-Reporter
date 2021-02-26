@@ -1,5 +1,6 @@
 import re
 import subprocess
+import optional_modules
 
 def solve(path):
 	# strings
@@ -29,6 +30,11 @@ def solve(path):
 		with open("Report.md","a") as f:
 			f.write("no valid passphrase using stegseek")
 			f.close()
+
+	optional_modules.exiftool(path)
+	optional_modules.binwalk(path)
+	optional_modules.xxd(path)
 				
 	
 	
+	 
