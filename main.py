@@ -26,5 +26,10 @@ elif('WAVE' in details):
 	import wav
 	print("wave file")
 	wav.solve(path)
+	
+elif("text" in details):
+	import text
+	print("text file")
+	text.solve(path)
 else:		
 	print("unrecognised filetype")		
