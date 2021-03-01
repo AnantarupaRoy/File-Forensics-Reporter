@@ -31,5 +31,10 @@ elif("text" in details):
 	import text
 	print("text file")
 	text.solve(path)
+	
+elif("PDF" in details):
+	import pdf
+	print("pdf file")
+	pdf.solve(path)
 else:		
 	print("unrecognised filetype")		
