@@ -33,3 +33,23 @@ def exiftool(path):
 	with open("Report.md","a+b") as f:
 		f.write(output)
 		f.close()
+
+def stegextract(path):
+	
+	with open("Report.md","a") as f:
+		f.write("\n\nOUTPUT FROM STEGEXTRACT:\n\n")
+		f.close()
+	try:
+		data = subprocess.Popen(["stegextract",path,"--outfile","out"], stdout=subprocess.PIPE)
+		output=data.communicate()[0]
+		with open("out","r") as f1:
+			secret=f1.read()
+
+		with open("Report.md","a") as f:
+			f.write(secret)
+			f.close()
+	except:
+		with open("Report.md","a") as f:
+			f.write("\n\nNOTHING FROM STEGEXTRACT\n\n")
+			f.close()
+
