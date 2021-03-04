@@ -32,6 +32,11 @@ elif("text" in details):
 	print("text file")
 	text.solve(path)
 	
+elif("bitmap" in details):
+	import bmp
+	print("bitmap file")
+	bmp.solve(path)
+	
 elif("PDF" in details):
 	import pdf
 	print("pdf file")
