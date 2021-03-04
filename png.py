@@ -3,6 +3,8 @@ import subprocess
 import optional_modules
 
 def solve(path):
+	# stegextract
+	optional_modules.stegextract(path)
 
 	# strings
 	data = subprocess.Popen(["strings",path], stdout=subprocess.PIPE)
