@@ -180,8 +180,14 @@ def carving(path):
 		f.close()	
 		
 	with open("Report.md","a+b") as f:
-		f.write(output)
+		for line in output.split(b"\n"):
+			
+			
+			if re.search(r'FILES EXTRACTED',line.decode()):
+				
+				f.write(line+b"\n\n")
+			elif re.search(r':=\s',line.decode()):
+				f.write(line+b"\n\n")
 		f.close()
-
 
 
