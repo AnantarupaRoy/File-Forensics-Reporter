@@ -190,4 +190,20 @@ def carving(path):
 				f.write(line+b"\n\n")
 		f.close()
 
+def stegsnow(path):
+	data = subprocess.Popen(["stegsnow",path,"stegsnow_answer.txt"], stdout=subprocess.PIPE)
+	output=data.communicate()[0]
+	try:	
+		
+		with open("stegsnow_answer.txt","r") as f1:
+			text = f1.read()
+		with open("Report.md","a") as f:
+			f.write("\n\nOUTPUT FROM STEGSNOW : \n\n")
+			f.write(text)
+			f.close()
+	except:
+		with open("Report.md","a") as f:
+			f.write("no valid output from stegsnow")
+			f.close()
+
 
