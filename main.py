@@ -41,5 +41,11 @@ elif("PDF" in details):
 	import pdf
 	print("pdf file")
 	pdf.solve(path)
+	
+elif("Zip" in details):
+	import zipf
+	print("zip file")
+	zipf.solve(path)
+
 else:		
 	print("unrecognised filetype")		
