@@ -138,7 +138,7 @@ def outguess(path):
 		
 	try:	
 		
-		with open(outguess_answer,"r") as f1:
+		with open("outguess_answer.txt","r") as f1:
 			text = f1.read()
 		with open("Report.md","a") as f:
 			f.write(text)
