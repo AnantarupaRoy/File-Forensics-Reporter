@@ -46,6 +46,11 @@ elif("Zip" in details):
 	import zipf
 	print("zip file")
 	zipf.solve(path)
+	
+elif('pcap' in details):
+	import pcap
+	print("pcap file")
+	pcap.solve(path)
 
 else:		
 	print("unrecognised filetype")		
