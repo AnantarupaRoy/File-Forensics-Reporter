@@ -51,6 +51,11 @@ elif('pcap' in details):
 	import pcap
 	print("pcap file")
 	pcap.solve(path)
+	
+elif('Microsoft' in details and not 'WAVE' in details):
+	import msoffice
+	print("office file")
+	msoffice.solve(path)
 
 else:		
 	print("unrecognised filetype")		
