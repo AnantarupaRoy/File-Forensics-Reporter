@@ -1,14 +1,17 @@
 import re
 import subprocess
 
+
 # binwalk
 # xxd
 # exif
+pwd=subprocess.Popen(["pwd"], stdout=subprocess.PIPE)
+location=pwd.communicate()[0]
 def binwalk(path):
 	data = subprocess.Popen(["binwalk",path], stdout=subprocess.PIPE)
 	output=data.communicate()[0]
 	with open("Report.md","a") as f:
-		f.write("\n\nOUTPUT FROM BINWALK:\n\n")
+		f.write("\nOUTPUT FROM BINWALK:\n")
 		f.close()
 	with open("Report.md","a+b") as f:
 		f.write(output)
@@ -28,7 +31,7 @@ def exiftool(path):
 	data = subprocess.Popen(["exiftool",path], stdout=subprocess.PIPE)
 	output=data.communicate()[0]
 	with open("Report.md","a") as f:
-		f.write("\n\nOUTPUT FROM EXIFTOOL:\n\n")
+		f.write("\nOUTPUT FROM EXIFTOOL:\n")
 		f.close()
 	with open("Report.md","a+b") as f:
 		f.write(output)
@@ -37,7 +40,7 @@ def exiftool(path):
 def stegextract(path):
 	
 	with open("Report.md","a") as f:
-		f.write("\n\nOUTPUT FROM STEGEXTRACT:\n\n")
+		f.write("\nOUTPUT FROM STEGEXTRACT:\n")
 		f.close()
 	try:
 		data = subprocess.Popen(["stegextract",path,"--outfile","out"], stdout=subprocess.PIPE)
@@ -50,7 +53,7 @@ def stegextract(path):
 			f.close()
 	except:
 		with open("Report.md","a") as f:
-			f.write("\n\nNOTHING FROM STEGEXTRACT\n\n")
+			f.write("\nNOTHING FROM STEGEXTRACT\n")
 			f.close()
 
 def strings(path):
@@ -59,16 +62,24 @@ def strings(path):
 	with open("Report.md","a") as f:
 		f.write("\n\nOUTPUT FROM STRINGS:\n\n")
 		f.close()	
+
+	for line in output.split():
+			
+			# print(line.decode())
+		clean = ''.join(re.findall(r'\w',line.decode()))
+		if (len(clean)>5):
+			# print(clean)
 		
-	with open("Report.md","a+b") as f:
-		f.write(output)
-		f.close()
+			with open("Report.md","a") as f:
+					
+				f.write(clean+"\n")
+				f.close()
 
 def pngcheck(path):
 	data = subprocess.Popen(["pngcheck",path], stdout=subprocess.PIPE)
 	output=data.communicate()[0]
 	with open("Report.md","a") as f:
-		f.write("\n\nOUTPUT FROM PNGCHECK:\n\n")
+		f.write("\nOUTPUT FROM PNGCHECK:\n")
 		f.close()	
 		
 	with open("Report.md","a+b") as f:
@@ -80,7 +91,7 @@ def zsteg(path):
 	output=data.communicate()[0]
 
 	with open("Report.md","a") as f:
-		f.write("\n\nOUTPUT FROM ZSTEG:\n\n")
+		f.write("\nOUTPUT FROM ZSTEG:\n")
 		f.close()
 
 		
@@ -95,12 +106,14 @@ def zsteg(path):
 def stegseek(path):
 	data = subprocess.Popen(["stegseek",path,"/usr/share/wordlists/rockyou.txt"], stdout=subprocess.PIPE )
 	output=data.communicate()[0]
+	with open("Report.md","a") as f:
+			f.write("\nOUTPUT FROM STEGSEEK : \n")
 	try:	
 		filename=path+".out"
 		with open(filename,"r") as f1:
 			text = f1.read()
 		with open("Report.md","a") as f:
-			f.write("\n\n OUTPUT FROM STEGSEEK : \n\n")
+			
 			f.write(text)
 			f.close()
 	except:
@@ -133,7 +146,7 @@ def outguess(path):
 	data = subprocess.Popen(["outguess","-r",path,"outguess_answer.txt"], stdout=subprocess.PIPE)
 	output=data.communicate()[0]
 	with open("Report.md","a") as f:
-		f.write("\n\nOUTPUT FROM OUTGUESS:\n\n")
+		f.write("\nOUTPUT FROM OUTGUESS:\n")
 		f.close()	
 		
 	try:	
@@ -205,5 +218,9 @@ def stegsnow(path):
 		with open("Report.md","a") as f:
 			f.write("no valid output from stegsnow")
 			f.close()
+
+
+	
+	
 
 
