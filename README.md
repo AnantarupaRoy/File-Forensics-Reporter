@@ -14,13 +14,7 @@ PNG , JPEG , PDF , OFFICE-FILES , WAV , BMP , PCAP , TXT and ZIP files
 
 ### Examples:
 
-**1.BMP files:**
-https://user-images.githubusercontent.com/76784729/113735689-1c9e1c80-971a-11eb-908d-a7feb9b5a5f9.png
-
-**2.PDF files:**
-
-**3.ZIP files:**
-
-**4. OFFICE files:**
+**BMP files:**
+![Screenshot_2021-04-06_20-44-07](https://user-images.githubusercontent.com/76784729/113737399-a0a4d400-971b-11eb-8731-c8c3072ddebb.png)
 
 
