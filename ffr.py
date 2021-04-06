@@ -26,36 +26,37 @@ elif('WAVE' in details):
 	import wav
 	print("wave file")
 	wav.solve(path)
-	
-elif("text" in details):
-	import text
-	print("text file")
-	text.solve(path)
-	
-elif("bitmap" in details):
-	import bmp
-	print("bitmap file")
-	bmp.solve(path)
-	
-elif("PDF" in details):
-	import pdf
-	print("pdf file")
-	pdf.solve(path)
-	
-elif("Zip" in details):
-	import zipf
-	print("zip file")
-	zipf.solve(path)
-	
+
 elif('pcap' in details):
 	import pcap
 	print("pcap file")
 	pcap.solve(path)
-	
+
+elif("text" in details):
+	import text
+	print("text file")
+	text.solve(path)
+
+elif("PDF" in details):
+	import pdf
+	print("pdf file")
+	pdf.solve(path)
+
+elif("bitmap" in details):
+	import bmp
+	print("bitmap file")
+	bmp.solve(path)
+
+elif("Zip" in details):
+	import zipf
+	print("zip file")
+	zipf.solve(path)
+
 elif('Microsoft' in details and not 'WAVE' in details):
 	import msoffice
 	print("office file")
 	msoffice.solve(path)
 
 else:		
-	print("unrecognised filetype")		
+	extcheckfunc.solve(path)
+			
